@@ -1,28 +1,33 @@
 const myObj = {
-  name: 'masum',
+  name: "masum",
   birthYear: 1990,
-  siteName: 'google',
+  siteName: "google",
 };
 function password(obj) {
-  if (typeof obj !== 'object' || obj === null || Object.keys(obj).length == 0) {
-    console.log('Invalid Data');
+  if (
+    typeof obj !== "object" ||
+    obj === null ||
+    Array.isArray(obj) ||
+    Object.keys(obj).length == 0
+  ) {
+    return "Invalid Data";
   } else {
     const { name, birthYear, siteName } = obj;
     if (
-      typeof name === 'string' &&
-      name !== '' &&
-      typeof birthYear === 'number' &&
-      typeof siteName === 'string' &&
-      siteName !== '' &&
+      typeof name === "string" &&
+      name !== "" &&
+      typeof birthYear === "number" &&
+      typeof siteName === "string" &&
+      siteName !== "" &&
       birthYear.toString().length == 4
     ) {
       const user = name.charAt(0).toUpperCase() + name.slice(1);
       const year = birthYear.toString();
       const site = siteName.charAt(0).toUpperCase() + siteName.slice(1);
-      const password = site + '#' + user + '@' + year;
+      const password = site + "#" + user + "@" + year;
       return password;
     } else {
-      return 'Some Information is Missing To Generate Password!';
+      return "Some Information is Missing To Generate Password!";
     }
   }
 }
